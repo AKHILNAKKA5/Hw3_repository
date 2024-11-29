@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project3-app-deployment
+  labels:
+    app: project3-app
+spec:
+  replicas: 2 # Number of desired pods
+  selector:
+    matchLabels:
+      app: project3-app
+  template:
+    metadata:
+      labels:
+        app: project3-app
+    spec:
+      containers:
+        - name: project3-app-container
+          image: anakka5/project3-app:latest 
+          ports:
+            - containerPort: 8080
